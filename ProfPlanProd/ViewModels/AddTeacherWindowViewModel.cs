@@ -18,8 +18,6 @@ namespace ProfPlanProd.ViewModels
         public string Position { get; set; }
         public string AcademicDegree { get; set; }
         public string Workload { get; set; }
-        private bool CanAdd = true;
-        private Teacher existingUser { get; set; }
 
         private RelayCommand _addTeacherCommand;
         public ICommand AddTeacherCommand
@@ -30,7 +28,7 @@ namespace ProfPlanProd.ViewModels
         private void AddTeacher(object obj)
         {
             Teacher checkUser = TeachersManager.GetTeacherByName(Lastname, Firstname, Middlename);
-            if (CanAdd == true && checkUser == null)
+            if (checkUser == null)
             {
                 double? doubleValue;
                 try
@@ -42,7 +40,7 @@ namespace ProfPlanProd.ViewModels
                     if (Lastname !=null && Firstname != null)
                     {
                         TeachersManager.AddTeacher(new Teacher() { LastName = Lastname, FirstName = Firstname, MiddleName = Middlename, Position = Position, AcademicDegree = AcademicDegree, Workload = doubleValue });
-                        ExcelModel.UpdateSharedTeachers();
+                        //ExcelModel.UpdateSharedTeachers();
                     }
                     else
                     {
@@ -61,22 +59,20 @@ namespace ProfPlanProd.ViewModels
             {
                 try
                 {
-                    if (existingUser == null)
+                    if (checkUser != null)
                     {
-                        existingUser = TeachersManager.GetTeacherByName(Lastname, Firstname, Middlename);
+                        checkUser.LastName = Lastname;
+                        checkUser.FirstName = Firstname;
+                        checkUser.MiddleName = Middlename;
+                        checkUser.Position = Position;
+                        checkUser.AcademicDegree = AcademicDegree;
+                        checkUser.Workload = Workload.ToNullable<double>();
 
+                        TeachersManager.UpdateTeacher(checkUser, TeachersManager.GetTeacherIndex(checkUser));
+                        MessageBox.Show("Данные пользователя обновлены.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //ExcelModel.UpdateSharedTeachers();
+                        checkUser = null;
                     }
-                    existingUser.LastName = Lastname;
-                    existingUser.FirstName = Firstname;
-                    existingUser.MiddleName = Middlename;
-                    existingUser.Position = Position;
-                    existingUser.AcademicDegree = AcademicDegree;
-                    existingUser.Workload = Workload.ToNullable<double>();
-
-                    TeachersManager.UpdateTeacher(existingUser, TeachersManager.GetTeacherIndex(existingUser));
-                    MessageBox.Show("Данные пользователя обновлены.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                    ExcelModel.UpdateSharedTeachers();
-
                 }
                 catch (FormatException)
                 {
@@ -84,6 +80,7 @@ namespace ProfPlanProd.ViewModels
                     Workload = null;
                 }
             }
+            //ExcelModel.UpdateSharedTeachers();
 
         }
         public void SetTeacher(Teacher teacher)
@@ -94,15 +91,6 @@ namespace ProfPlanProd.ViewModels
             Position = teacher?.Position;
             AcademicDegree = teacher?.AcademicDegree;
             Workload = teacher.Workload.ToNullable<double>().ToString();
-            existingUser = TeachersManager.GetTeacherByName(Lastname, Firstname, Middlename);
-            if (existingUser == null)
-            {
-                CanAdd = true;
-            }
-            else
-            {
-                CanAdd = false;
-            }
         }
     }
 }

@@ -25,6 +25,7 @@ namespace ProfPlanProd.Views
         public TeachersWindow()
         {
             InitializeComponent();
+            this.Closing += TeachersWindow_Closing;
             TeachersWindowViewModel TeacherListWindow = new TeachersWindowViewModel();
             this.DataContext = TeacherListWindow;
         }
@@ -52,11 +53,21 @@ namespace ProfPlanProd.Views
                 TeachersWindowViewModel mainViewModel = DataContext as TeachersWindowViewModel;
 
                 HitTestResult hitTestResult = VisualTreeHelper.HitTest(TeacherList, e.GetPosition(TeacherList));
+             
                 if (hitTestResult.VisualHit is FrameworkElement element && element.DataContext is Teacher selectedUser)
                 {
                     mainViewModel.RemoveSelectedTeacher(selectedUser);
                 }
             }
+        }
+
+        
+
+        // Метод, который будет вызываться при закрытии окна
+        private void TeachersWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Ваш метод, который нужно вызвать при закрытии окна
+            ExcelModel.UpdateSharedTeachers();
         }
     }
 }

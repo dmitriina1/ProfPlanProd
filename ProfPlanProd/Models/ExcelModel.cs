@@ -31,8 +31,16 @@ namespace ProfPlanProd.Models
             {
                 if (_teacher != value)
                 {
-                    _teacher = value;
-                    OnPropertyChanged(nameof(Teacher));
+                    if(TeachersManager.wasRemoved == true || TeachersManager.wasAdded == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        _teacher = value;
+                        OnPropertyChanged(nameof(Teacher));
+                    }
+                    
                 }
             }
         }
@@ -173,6 +181,7 @@ namespace ProfPlanProd.Models
                     sharedTeachers.Add($"{lname} {fname[0]}.");
             }
         }
+
 
         public double SumProperties()
         {

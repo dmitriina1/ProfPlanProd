@@ -11,6 +11,8 @@ namespace ProfPlanProd.Models
     {
         public static ObservableCollection<Teacher> _DatabaseUsers = new ObservableCollection<Teacher>();
 
+        public static bool wasRemoved = false;
+        public static bool wasAdded = false;
         public static ObservableCollection<Teacher> GetTeachers()
         {
             var teacherDatabase = new TeacherDatabase();
@@ -27,10 +29,12 @@ namespace ProfPlanProd.Models
         public static void AddTeacher(Teacher teacher)
         {
             _DatabaseUsers.Add(teacher);
+            wasAdded = true;
             var teacherDatabase = new TeacherDatabase();
             teacherDatabase.SaveTeachers(_DatabaseUsers);
             ExcelModel.UpdateSharedTeachers();
             OnTeachersChanged();
+            wasAdded = false;
         }
         public static Teacher GetTeacherByName(string lastname, string firstname, string middlename)
         {
@@ -51,10 +55,12 @@ namespace ProfPlanProd.Models
         public static void RemoveTeacher(Teacher teacher)
         {
             _DatabaseUsers.Remove(teacher);
+            wasRemoved = true;
             var teacherDatabase = new TeacherDatabase();
             teacherDatabase.SaveTeachers(_DatabaseUsers);
             ExcelModel.UpdateSharedTeachers();
             OnTeachersChanged();
+            wasRemoved = false;
         }
 
         public static event EventHandler TeachersChanged;

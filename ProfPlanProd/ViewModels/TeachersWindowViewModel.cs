@@ -63,11 +63,13 @@ namespace ProfPlanProd.ViewModels
             }
         }
 
+
         public void RemoveSelectedTeacher(Teacher teacher)
         {
             if (MessageBox.Show($"Вы уверены, что хотите удалить пользователя {teacher.LastName} {teacher.FirstName} {teacher.MiddleName}?", "Удаление пользователя", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 TeachersManager.RemoveTeacher(teacher);
+                ExcelModel.UpdateSharedTeachers();
                 Teachers = TeachersManager.GetTeachers();
             }
         }

@@ -22,6 +22,7 @@
             </DataGrid.CellStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№" Binding="{Binding Number}" IsReadOnly="True" dgv:DataGridFilterColumn.IsFilterVisible="False"/>
+                <!--<DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" dgv:DataGridFilterColumn.IsFilterVisible="False"  dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>-->
                 <DataGridTemplateColumn Header="Преподаватель" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" SortMemberPath="Teacher" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
