@@ -23,9 +23,9 @@
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding Number}" IsReadOnly="True" dgv:DataGridFilterColumn.IsFilterVisible="False"/>
+                <DataGridTextColumn Header="№" Binding="{Binding Number}" IsReadOnly="True" dgv:DataGridFilterColumn.IsFilterVisible="False" Width="50"/>
                 <!--<DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" dgv:DataGridFilterColumn.IsFilterVisible="False"  dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>-->
-                <DataGridTemplateColumn Header="Преподаватель" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" SortMemberPath="Teacher" >
+                <DataGridTemplateColumn Header="Преподаватель" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" SortMemberPath="Teacher" Width="170">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ComboBox IsEditable="True" 
@@ -34,33 +34,33 @@ ItemsSource="{Binding Teachers}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Дисциплина" Binding="{Binding Discipline, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Семестр" Binding="{Binding Term, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Группа" Binding="{Binding Group, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Институт" Binding="{Binding Institute, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Число групп" Binding="{Binding GroupCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubGroup, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Форма обучения" Binding="{Binding FormOfStudy, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Число студентов" Binding="{Binding StudentsCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Из них комерч." Binding="{Binding CommercicalStudentsCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Недель" Binding="{Binding Weeks, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Форма отчетности" Binding="{Binding ReportingForm, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Лекции" Binding="{Binding Lectures, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Практики" Binding="{Binding Practices, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Лабораторные" Binding="{Binding Laboratory, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Консультации" Binding="{Binding Consultations, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Зачеты" Binding="{Binding Tests, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Экзамены" Binding="{Binding Exams, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Курсовые работы" Binding="{Binding CourseWorks, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Курсовые проекты" Binding="{Binding CourseProjects, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="ГЭК+Прием ГЭК, прием ГАК" Binding="{Binding GEKAndGAK, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Диплом" Binding="{Binding Diploma, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="РГЗ_Реф, нормоконтроль" Binding="{Binding RGZ, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="ПрактикаРабота, реценз диплом" Binding="{Binding ReviewDiploma, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Прочее" Binding="{Binding Other, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Всего" Binding="{Binding Total, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Бюджетные" Binding="{Binding Budget, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
-                <DataGridTextColumn Header="Коммерческие" Binding="{Binding Commercial, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}"/>
+                <DataGridTextColumn Header="Дисциплина" Binding="{Binding Discipline, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="260"/>
+                <DataGridTextColumn Header="Семестр" Binding="{Binding Term, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Group, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Институт" Binding="{Binding Institute, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Число групп" Binding="{Binding GroupCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="150"/>
+                <DataGridTextColumn Header="Подгруппа" Binding="{Binding SubGroup, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="140"/>
+                <DataGridTextColumn Header="Форма обучения" Binding="{Binding FormOfStudy, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="175"/>
+                <DataGridTextColumn Header="Число студентов" Binding="{Binding StudentsCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="185"/>
+                <DataGridTextColumn Header="Из них комерч." Binding="{Binding CommercicalStudentsCount, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="165"/>
+                <DataGridTextColumn Header="Недель" Binding="{Binding Weeks, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Форма отчетности" Binding="{Binding ReportingForm, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="185"/>
+                <DataGridTextColumn Header="Лекции" Binding="{Binding Lectures, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Практики" Binding="{Binding Practices, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Лабораторные" Binding="{Binding Laboratory, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="175"/>
+                <DataGridTextColumn Header="Консультации" Binding="{Binding Consultations, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="175"/>
+                <DataGridTextColumn Header="Зачеты" Binding="{Binding Tests, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Экзамены" Binding="{Binding Exams, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="150"/>
+                <DataGridTextColumn Header="Курсовые работы" Binding="{Binding CourseWorks, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="185"/>
+                <DataGridTextColumn Header="Курсовые проекты" Binding="{Binding CourseProjects, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="190"/>
+                <DataGridTextColumn Header="ГЭК+Прием ГЭК, прием ГАК" Binding="{Binding GEKAndGAK, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="250"/>
+                <DataGridTextColumn Header="Диплом" Binding="{Binding Diploma, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="РГЗ_Реф, нормоконтроль" Binding="{Binding RGZ, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="235"/>
+                <DataGridTextColumn Header="ПрактикаРабота, реценз диплом" Binding="{Binding ReviewDiploma, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="275"/>
+                <DataGridTextColumn Header="Прочее" Binding="{Binding Other, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Всего" Binding="{Binding Total, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="130"/>
+                <DataGridTextColumn Header="Бюджетные" Binding="{Binding Budget, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="150"/>
+                <DataGridTextColumn Header="Коммерческие" Binding="{Binding Commercial, TargetNullValue=''}" dgv:DataGridFilterColumn.Template="{StaticResource MultipleChoiceFilter}" Width="165"/>
             </DataGrid.Columns>
         </DataGrid>
     </DataTemplate>
@@ -75,13 +75,13 @@ EnableColumnVirtualization="True" VirtualizingPanel.CacheLength="25" Virtualizin
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding Teacher, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Ставка" Binding="{Binding Bet, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Ставка (%)" Binding="{Binding BetPercent, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Всего" Binding="{Binding TotalHours, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Осень" Binding="{Binding AutumnHours, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Весна" Binding="{Binding SpringHours, TargetNullValue=''}" />
-                <DataGridTextColumn Header="Разница" Binding="{Binding Difference, TargetNullValue=''}" />
+                <DataGridTextColumn Header="ФИО" Binding="{Binding Teacher, TargetNullValue=''}" Width="110"/>
+                <DataGridTextColumn Header="Ставка" Binding="{Binding Bet, TargetNullValue=''}" Width="90"/>
+                <DataGridTextColumn Header="Ставка (%)" Binding="{Binding BetPercent, TargetNullValue=''}" Width="100"/>
+                <DataGridTextColumn Header="Всего" Binding="{Binding TotalHours, TargetNullValue=''}" Width="100"/>
+                <DataGridTextColumn Header="Осень" Binding="{Binding AutumnHours, TargetNullValue=''}" Width="100"/>
+                <DataGridTextColumn Header="Весна" Binding="{Binding SpringHours, TargetNullValue=''}" Width="100"/>
+                <DataGridTextColumn Header="Разница" Binding="{Binding Difference, TargetNullValue=''}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </DataTemplate>
@@ -96,9 +96,9 @@ EnableColumnVirtualization="True" VirtualizingPanel.CacheLength="25" Virtualizin
                 </Style>
             </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding TeacherA, TargetNullValue='',Mode=TwoWay}" />
-                <DataGridTextColumn Header="Вид работы" Binding="{Binding TypeOfWork, TargetNullValue='',Mode=TwoWay}" />
-                <DataGridTextColumn Header="Часов" Binding="{Binding TotalHours, TargetNullValue='',Mode=TwoWay}" />
+                <DataGridTextColumn Header="ФИО" Binding="{Binding TeacherA, TargetNullValue='',Mode=TwoWay}"  Width="110"/>
+                <DataGridTextColumn Header="Вид работы" Binding="{Binding TypeOfWork, TargetNullValue='',Mode=TwoWay}"  Width="110"/>
+                <DataGridTextColumn Header="Часов" Binding="{Binding TotalHours, TargetNullValue='',Mode=TwoWay}"  Width="70"/>
             </DataGrid.Columns>
         </DataGrid>
     </DataTemplate>
