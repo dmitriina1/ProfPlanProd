@@ -13,6 +13,8 @@
         <DataGrid ItemsSource="{Binding ExcelDataList}" Language="ru-RU" dgv:DataGridFilter.IsAutoFilterEnabled="True" 
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.CacheLength="25" 
                   VirtualizingPanel.CacheLengthUnit="Item"  VirtualizingPanel.VirtualizationMode="Recycling" CanUserAddRows="False"  
+                  EnableRowVirtualization="True"
+                  EnableColumnVirtualization="True" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ap:MultiSelectorBehaviours.SynchronizedSelectedItems="{Binding DataContext.SelectedItems, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
@@ -64,7 +66,8 @@ ItemsSource="{Binding Teachers}"/>
     </DataTemplate>
 
     <DataTemplate  x:Key="SecondTemplate" >
-        <DataGrid ItemsSource="{Binding ExcelDataList}" Language="ru-RU" AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" CanUserAddRows="False" >
+        <DataGrid ItemsSource="{Binding ExcelDataList}" Language="ru-RU" AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" CanUserAddRows="False"  EnableRowVirtualization="True"
+EnableColumnVirtualization="True" VirtualizingPanel.CacheLength="25" VirtualizingPanel.CacheLengthUnit="Item"  VirtualizingPanel.VirtualizationMode="Recycling" VirtualizingPanel.IsVirtualizingWhenGrouping="True">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="BorderThickness" Value="0.2"/>
@@ -84,7 +87,8 @@ ItemsSource="{Binding Teachers}"/>
     </DataTemplate>
 
     <DataTemplate  x:Key="ThirdTemplate" >
-        <DataGrid ItemsSource="{Binding ExcelDataList}" Language="ru-RU" AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" CanUserAddRows="False" >
+        <DataGrid ItemsSource="{Binding ExcelDataList}" Language="ru-RU" AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" CanUserAddRows="False"  EnableRowVirtualization="True"
+EnableColumnVirtualization="True" VirtualizingPanel.CacheLength="25" VirtualizingPanel.CacheLengthUnit="Item"  VirtualizingPanel.VirtualizationMode="Recycling" VirtualizingPanel.IsVirtualizingWhenGrouping="True">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">
                     <Setter Property="BorderThickness" Value="0.2"/>

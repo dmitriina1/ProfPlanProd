@@ -132,6 +132,7 @@
         VirtualizingPanel.VirtualizationMode="Recycling"
         VirtualizingPanel.CacheLength="25" 
         VirtualizingPanel.CacheLengthUnit="Item"
+        VirtualizingPanel.IsVirtualizingWhenGrouping="True"
         Template="{Binding TabStripPlacement, Converter={StaticResource TabStripPlacementConverter}}" Cursor="">
 
         <TabControl.ItemTemplate>

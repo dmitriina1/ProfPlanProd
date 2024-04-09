@@ -18,11 +18,13 @@ namespace ProfPlanProd.Views
         {
             if (!(item is TableCollection tableCollection)) return null;
 
-            if (tableCollection.Tablename.IndexOf("Итого", StringComparison.OrdinalIgnoreCase) == -1 && tableCollection.Tablename.IndexOf("Доп", StringComparison.OrdinalIgnoreCase) == -1)
+            string tableName = tableCollection.Tablename.ToLower();
+
+            if (!tableName.Contains("итого") && !tableName.Contains("доп"))
             {
                 return FirstTemplate;
             }
-            else if (tableCollection.Tablename.IndexOf("Доп", StringComparison.OrdinalIgnoreCase) != -1)
+            else if (tableName.Contains("доп"))
             {
                 return ThirdTemplate;
             }
