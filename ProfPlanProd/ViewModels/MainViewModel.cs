@@ -383,6 +383,7 @@ namespace ProfPlanProd.ViewModels
                         }
                         OnPropertyChanged(nameof(TablesCollections));
                         UpdateListBoxItemsSource();
+                        StringsCount = $"Строк {SelectedTable.ExcelDataList.Count}";
                     }
                     else
                     {
@@ -1566,6 +1567,59 @@ namespace ProfPlanProd.ViewModels
                     _stringsCount = value;
                     OnPropertyChanged(nameof(StringsCount));
                 }
+            }
+        }
+
+
+        private bool hasAutoNumeration = false;
+        private RelayCommand _autoNumerationCommand;
+
+        public ICommand AutoNumerationCommand
+        {
+            get { return _autoNumerationCommand ?? (_autoNumerationCommand = new RelayCommand(AutoNumeration)); }
+        }
+        private void AutoNumeration(object parameter)
+        {
+            if (hasAutoNumeration == false)
+            {
+                hasAutoNumeration = true;
+                
+               int  indp = TablesCollections.GetTableIndexByName("П_ПИиИС", _selectedComboBoxIndex);
+               int indf = TablesCollections.GetTableIndexByName("Ф_ПИиИС", _selectedComboBoxIndex);
+                if (indp>-1)
+                {
+                    Number = 1;
+                    TableCollection tabCol = TablesCollections.GetTablesCollection()[indp];
+                    for(int i = 0; i<tabCol.ExcelDataList.Count; i++)
+                    {
+                        if (tabCol.ExcelDataList[i] is ExcelModel excelModel)
+                        {
+                            excelModel.Number = Number;
+                            Number++;
+                            // Используйте переменную number в вашем коде
+                        }
+                    }
+                }
+                if (indf>-1)
+                {
+                    Number = 1;
+                    TableCollection tabCol = TablesCollections.GetTablesCollection()[indf];
+                    for (int i = 0; i<tabCol.ExcelDataList.Count; i++)
+                    {
+                        if (tabCol.ExcelDataList[i] is ExcelModel excelModel)
+                        {
+                            excelModel.Number = Number;
+                            Number++;
+                            // Используйте переменную number в вашем коде
+                        }
+                    }
+                }
+                SelectedTable = null;
+                MessageBox.Show("Была произведена нумерация.");
+            }
+            else
+            {
+                hasAutoNumeration = false;
             }
         }
     }

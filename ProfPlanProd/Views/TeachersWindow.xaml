@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProfPlanProd.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="TeachersWindow" Height="450" Width="800">
+        Title="Список преподавателей" Height="450" Width="900">
     <Grid Background="#F5F5F5">
         <Grid Background="White" Grid.Row="1" Margin="25,10" >
             <Button Height="30" Style="{StaticResource ButtonStyle}"  Command="{Binding ShowAddTeacherWindowCommand}"  Content="Добавить" Width="100" VerticalContentAlignment="Center" Padding="5" Margin="25" VerticalAlignment="Top" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0"  />

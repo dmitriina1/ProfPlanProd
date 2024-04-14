@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProfPlanProd.Views"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="AddTeacherWindow" Height="500" Width="400">
+        Title="Добавление преподавателя" Height="500" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
