@@ -42,7 +42,7 @@ namespace ProfPlanProd.Models
                 FileSystemRights.FullControl,
                 AccessControlType.Allow));
             fileInfo.SetAccessControl(fileSecurity);
-            m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;");
+            m_dbConn = new SQLiteConnection("Data Source=" + dbFileName + ";Version=3;Mode=ReadWrite;journal mode=Off;");
             m_dbConn.Open();
             m_sqlCmd.Connection = m_dbConn;
 

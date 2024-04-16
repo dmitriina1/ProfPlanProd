@@ -76,6 +76,7 @@ namespace ProfPlanProd.ViewModels
                         State = (double)progress;
                     }
                 }
+                //tableCollection.Clear();
                 UpdateListBoxItemsSource();
             }
             catch (Exception ex)
