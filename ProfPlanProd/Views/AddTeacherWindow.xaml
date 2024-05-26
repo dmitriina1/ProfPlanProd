@@ -26,7 +26,7 @@
         <Label Grid.Row="2" Content="Отчество" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
         <TextBox Grid.Row="2" Height="30" Text="{Binding Middlename, TargetNullValue=''}" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
 
-        <Label Grid.Row="3" Content="Учетная степень" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
+        <Label Grid.Row="3" Content="Ученая степень" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
         <TextBox Grid.Row="3" Height="30" Text="{Binding AcademicDegree, TargetNullValue=''}" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
 
         <Label Grid.Row="4" Content="Ученое звание" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
@@ -35,7 +35,7 @@
         <Label Grid.Row="5" Content="Размер ставки" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
         <TextBox Grid.Row="5" Height="30" Text="{Binding Workload, TargetNullValue=''}" Language="ru-RU" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
 
-        <Button Grid.Row="6" Style="{StaticResource ButtonStyle}" Height="30" Command="{Binding AddTeacherCommand}" Content="Add" Width="70"  VerticalContentAlignment="Center" Padding="5" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
+        <Button Grid.Row="6" Style="{StaticResource ButtonStyle}" Height="30" Command="{Binding AddTeacherCommand}" Content="Добавить" Width="90"  VerticalContentAlignment="Center" Padding="5" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
 
     </Grid>
 </Window>

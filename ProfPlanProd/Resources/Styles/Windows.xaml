@@ -14,7 +14,8 @@
                   AutoGenerateColumns="False" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.CacheLength="25" 
                   VirtualizingPanel.CacheLengthUnit="Item"  VirtualizingPanel.VirtualizationMode="Recycling" CanUserAddRows="False"  
                   EnableRowVirtualization="True"
-                  EnableColumnVirtualization="True" VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                  EnableColumnVirtualization="True"
+                  VirtualizingPanel.IsVirtualizingWhenGrouping="True"
                   ap:MultiSelectorBehaviours.SynchronizedSelectedItems="{Binding DataContext.SelectedItems, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}">
             <DataGrid.CellStyle>
                 <Style TargetType="DataGridCell">

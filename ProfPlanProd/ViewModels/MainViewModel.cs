@@ -250,7 +250,7 @@ namespace ProfPlanProd.ViewModels
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show($"Error adding data: {ex.Message}");
+                        MessageBox.Show($"Error adding data: {ex.Message} {tabname}");
                     }
                 }
             }

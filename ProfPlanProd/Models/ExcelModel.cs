@@ -11,6 +11,7 @@ namespace ProfPlanProd.Models
     {
         public int Number { get; set; }
         private string _teacher;
+        public static bool wasUpdate = false;
         private static ObservableCollection<string> sharedTeachers = new ObservableCollection<string>();
 
         public static ObservableCollection<string> Teachers
@@ -31,7 +32,7 @@ namespace ProfPlanProd.Models
             {
                 if (_teacher != value)
                 {
-                    if(TeachersManager.wasRemoved == true || TeachersManager.wasAdded == true)
+                    if(TeachersManager.wasRemoved == true || TeachersManager.wasAdded == true || wasUpdate == true)
                     {
                         return;
                     }
@@ -168,6 +169,7 @@ namespace ProfPlanProd.Models
 
         public static void UpdateSharedTeachers()
         {
+            wasUpdate = true;
             sharedTeachers.Clear();
             string lname, fname, mname;
             foreach (var teacher in TeachersManager.GetTeachers())
@@ -180,6 +182,7 @@ namespace ProfPlanProd.Models
                 else
                     sharedTeachers.Add($"{lname} {fname[0]}.");
             }
+            wasUpdate = false;
         }
 
 
