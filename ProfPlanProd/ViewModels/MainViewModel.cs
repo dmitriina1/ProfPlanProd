@@ -877,16 +877,18 @@ namespace ProfPlanProd.ViewModels
                                 worksheet.Cell(frow, i + 1).Style.Alignment.SetTextRotation(90);
                                 if (newPropertyNames[i] != "Преподаватель")
                                     worksheet.Cell(frow, i + 1).Style.Alignment.WrapText = true;
+                                if (worksheet.Name.IndexOf("ПИиИС", StringComparison.OrdinalIgnoreCase) == -1)
+                                {
+                                    worksheet.Cell(rowNumberAutumn, i + 1).Value = newPropertyNames[i];
+                                    worksheet.Cell(rowNumberAutumn, i + 1).Style.Alignment.SetTextRotation(90);
+                                    if (newPropertyNames[i] != "Преподаватель")
+                                        worksheet.Cell(rowNumberAutumn, i + 1).Style.Alignment.WrapText = true;
 
-                                worksheet.Cell(rowNumberAutumn, i + 1).Value = newPropertyNames[i];
-                                worksheet.Cell(rowNumberAutumn, i + 1).Style.Alignment.SetTextRotation(90);
-                                if (newPropertyNames[i] != "Преподаватель")
-                                worksheet.Cell(rowNumberAutumn, i + 1).Style.Alignment.WrapText = true;
-
-                                worksheet.Cell(rowNumberSpring, i + 1).Value = newPropertyNames[i];
-                                worksheet.Cell(rowNumberSpring, i + 1).Style.Alignment.SetTextRotation(90);
-                                if (newPropertyNames[i] != "Преподаватель")
-                                worksheet.Cell(rowNumberSpring, i + 1).Style.Alignment.WrapText = true;
+                                    worksheet.Cell(rowNumberSpring, i + 1).Value = newPropertyNames[i];
+                                    worksheet.Cell(rowNumberSpring, i + 1).Style.Alignment.SetTextRotation(90);
+                                    if (newPropertyNames[i] != "Преподаватель")
+                                        worksheet.Cell(rowNumberSpring, i + 1).Style.Alignment.WrapText = true;
+                                }
                             }
                         }
                         completedTables++;
@@ -927,9 +929,12 @@ namespace ProfPlanProd.ViewModels
             else if (table.Tablename.IndexOf("Доп", StringComparison.OrdinalIgnoreCase) == -1)
             {
                 CreateModelHeaders(worksheet);
-                CreateModelHeaders(worksheet, table.ExcelDataList.Count + 7);
-                CreateModelHeaders(worksheet, table.ExcelDataList.Where(tc => (tc.GetTermValue() ?? "").IndexOf("нечет", StringComparison.OrdinalIgnoreCase) != -1).Count() + table.ExcelDataList.Count() + 14);
-            }
+                if (table.Tablename.IndexOf("ПИиИС", StringComparison.OrdinalIgnoreCase) == -1)
+                {
+                    CreateModelHeaders(worksheet, table.ExcelDataList.Count + 7);
+                    CreateModelHeaders(worksheet, table.ExcelDataList.Where(tc => (tc.GetTermValue() ?? "").IndexOf("нечет", StringComparison.OrdinalIgnoreCase) != -1).Count() + table.ExcelDataList.Count() + 14);
+                }
+                }
             else
             {
                 CreateAdditionalHeaders(worksheet);
@@ -1031,7 +1036,7 @@ namespace ProfPlanProd.ViewModels
             }
            
 
-            if (table.Tablename.IndexOf("Итого", StringComparison.OrdinalIgnoreCase) == -1 && table.Tablename.IndexOf("Доп", StringComparison.OrdinalIgnoreCase) == -1)
+            if (table.Tablename.IndexOf("Итого", StringComparison.OrdinalIgnoreCase) == -1 && table.Tablename.IndexOf("Доп", StringComparison.OrdinalIgnoreCase) == -1 && table.Tablename.IndexOf("ПИиИС", StringComparison.OrdinalIgnoreCase) == -1)
             {
                 double sum = 0;
                 foreach (ExcelModel excelModel in table.ExcelDataList)
