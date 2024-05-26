@@ -53,7 +53,9 @@ namespace ProfPlanProd.Models
                         MiddleName TEXT,
                         Position TEXT,
                         AcademicDegree TEXT,
-                        Workload REAL
+                        Post TEXT,
+                        Workload REAL,
+                        WorkloadCount REAL
                     );";
             m_sqlCmd.ExecuteNonQuery();
 
@@ -74,15 +76,17 @@ namespace ProfPlanProd.Models
             {
 
                 m_sqlCmd.CommandText = @"
-                        INSERT INTO Teachers (LastName, FirstName, MiddleName, Position, AcademicDegree, Workload)
-                        VALUES ($lastName, $firstName, $middleName, $position, $academicDegree, $workload);";
+                        INSERT INTO Teachers (LastName, FirstName, MiddleName, Position, AcademicDegree, Post, Workload, WorkloadCount)
+                        VALUES ($lastName, $firstName, $middleName, $position, $academicDegree, $post, $workload, $workloadCount);";
 
                 m_sqlCmd.Parameters.AddWithValue("$lastName", teacher.LastName);
                 m_sqlCmd.Parameters.AddWithValue("$firstName", teacher.FirstName);
                 m_sqlCmd.Parameters.AddWithValue("$middleName", teacher.MiddleName);
                 m_sqlCmd.Parameters.AddWithValue("$position", teacher.Position);
                 m_sqlCmd.Parameters.AddWithValue("$academicDegree", teacher.AcademicDegree);
+                m_sqlCmd.Parameters.AddWithValue("$post", teacher.Post);
                 m_sqlCmd.Parameters.AddWithValue("$workload", teacher.Workload);
+                m_sqlCmd.Parameters.AddWithValue("$workloadCount", teacher.WorkloadCount);
 
                 m_sqlCmd.ExecuteNonQuery();
             }
@@ -104,9 +108,11 @@ namespace ProfPlanProd.Models
                     string middleName = reader["MiddleName"].ToString();
                     string position = reader["Position"].ToString();
                     string academicDegree = reader["AcademicDegree"].ToString();
+                    string post = reader["Post"].ToString();
                     double? workload = reader["Workload"].ToNullable<double>();
+                    double? workloadCount = reader["WorkloadCount"].ToNullable<double>();
 
-                    Teacher teacher = new Teacher(lastName, firstName, middleName, position, academicDegree, workload);
+                    Teacher teacher = new Teacher(lastName, firstName, middleName, position, academicDegree, post, workload, workloadCount);
                     teachers.Add(teacher);
                 }
 

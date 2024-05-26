@@ -74,6 +74,19 @@ namespace ProfPlanProd.Models
                 }
             }
         }
+        private string _post;
+        public string Post
+        {
+            get { return _post; }
+            set
+            {
+                if (_post != value)
+                {
+                    _post = value;
+                    OnPropertyChanged(nameof(Post));
+                }
+            }
+        }
         private double? _workload;
         public double? Workload
         {
@@ -87,15 +100,31 @@ namespace ProfPlanProd.Models
                 }
             }
         }
+
+        private double? _workloadCount;
+        public double? WorkloadCount
+        {
+            get { return _workloadCount; }
+            set
+            {
+                if (_workloadCount != value)
+                {
+                    _workloadCount = value;
+                    OnPropertyChanged(nameof(WorkloadCount));
+                }
+            }
+        }
         public Teacher() { }
-        public Teacher(string lastName, string firstName, string middleName, string position, string academicDegree, double? workload)
+        public Teacher(string lastName, string firstName, string middleName, string position, string academicDegree, string post, double? workload, double? workloadCount)
         {
             LastName=lastName;
             FirstName=firstName;
             MiddleName=middleName;
             Position=position;
             AcademicDegree=academicDegree;
+            Post = post;
             Workload=workload;
+            WorkloadCount = workloadCount;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

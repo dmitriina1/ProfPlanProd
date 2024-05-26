@@ -1445,6 +1445,7 @@ namespace ProfPlanProd.ViewModels
                         //Реализация листа Итого:
 
                         double? bet = null;
+                        double? betCount = null;
                         string lname, fname, mname;
                         if (teacherTableCollection.Tablename != prefix + "Незаполненные")
                         {
@@ -1456,13 +1457,14 @@ namespace ProfPlanProd.ViewModels
                                 if ($"{lname} {fname[0]}.{mname[0]}." == teacher)
                                 {
                                     bet = teach.Workload;
+                                    betCount = teach.WorkloadCount;
                                 }
 
                             }
                             totallist.Add(new ExcelTotal(
                             teacher.IndexOf(' ') != -1 ? teacher.Substring(0, teacher.IndexOf(' ')) : teacher,
                                 bet,
-                            null,
+                            betCount,
                                 teacherTableCollection.TotalHours,
                                teacherTableCollection.AutumnHours,
                                teacherTableCollection.SpringHours,

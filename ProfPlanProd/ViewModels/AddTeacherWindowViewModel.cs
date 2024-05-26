@@ -17,7 +17,9 @@ namespace ProfPlanProd.ViewModels
         public string Middlename { get; set; }
         public string Position { get; set; }
         public string AcademicDegree { get; set; }
+        public string Post { get; set; }
         public string Workload { get; set; }
+        public string WorkloadCount { get; set; }
 
         private RelayCommand _addTeacherCommand;
         public ICommand AddTeacherCommand
@@ -31,15 +33,19 @@ namespace ProfPlanProd.ViewModels
             if (checkUser == null)
             {
                 double? doubleValue;
+                double? doubleValueCount;
                 try
                 {
                     System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
                     if (Workload!=null)
                         doubleValue = Convert.ToDouble(Workload);
                     else doubleValue = null;
+                    if(WorkloadCount!=null)
+                        doubleValueCount = Convert.ToDouble(WorkloadCount);
+                    else doubleValueCount = null;
                     if (Lastname !=null && Firstname != null)
                     {
-                        TeachersManager.AddTeacher(new Teacher() { LastName = Lastname, FirstName = Firstname, MiddleName = Middlename, Position = Position, AcademicDegree = AcademicDegree, Workload = doubleValue });
+                        TeachersManager.AddTeacher(new Teacher() { LastName = Lastname, FirstName = Firstname, MiddleName = Middlename, Position = Position, AcademicDegree = AcademicDegree, Post = Post, Workload = doubleValue, WorkloadCount = doubleValueCount });
                         //ExcelModel.UpdateSharedTeachers();
                     }
                     else
@@ -52,7 +58,9 @@ namespace ProfPlanProd.ViewModels
                 {
                     MessageBox.Show("В ячейку Ставка было вписано не число!");
                     doubleValue = null;
+                    doubleValueCount = null;
                     Workload = null;
+                    WorkloadCount = null;
                 }
             }
             else
@@ -66,7 +74,9 @@ namespace ProfPlanProd.ViewModels
                         checkUser.MiddleName = Middlename;
                         checkUser.Position = Position;
                         checkUser.AcademicDegree = AcademicDegree;
+                        checkUser.Post = Post;
                         checkUser.Workload = Workload.ToNullable<double>();
+                        checkUser.WorkloadCount = WorkloadCount.ToNullable<double>();
 
                         TeachersManager.UpdateTeacher(checkUser, TeachersManager.GetTeacherIndex(checkUser));
                         MessageBox.Show("Данные пользователя обновлены.", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -78,6 +88,7 @@ namespace ProfPlanProd.ViewModels
                 {
                     MessageBox.Show("В ячейку Ставка было вписано не число!");
                     Workload = null;
+                    WorkloadCount = null;
                 }
             }
             //ExcelModel.UpdateSharedTeachers();
@@ -90,7 +101,9 @@ namespace ProfPlanProd.ViewModels
             Middlename = teacher?.MiddleName;
             Position = teacher?.Position;
             AcademicDegree = teacher?.AcademicDegree;
+            Post = teacher?.Post;
             Workload = teacher.Workload.ToNullable<double>().ToString();
+            WorkloadCount = teacher.WorkloadCount.ToNullable<double>().ToString();
         }
     }
 }

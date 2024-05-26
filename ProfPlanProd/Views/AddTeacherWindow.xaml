@@ -15,6 +15,8 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Фамилия" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
@@ -32,10 +34,16 @@
         <Label Grid.Row="4" Content="Ученое звание" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
         <TextBox Grid.Row="4" Height="30" Text="{Binding Position, TargetNullValue=''}" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
 
-        <Label Grid.Row="5" Content="Размер ставки" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
-        <TextBox Grid.Row="5" Height="30" Text="{Binding Workload, TargetNullValue=''}" Language="ru-RU" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
+        <Label Grid.Row="5" Content="Должность" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
+        <TextBox Grid.Row="5" Height="30" Text="{Binding Post, TargetNullValue=''}" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
+        
+        <Label Grid.Row="6" Content="Размер ставки" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
+        <TextBox Grid.Row="6" Height="30" Text="{Binding Workload, TargetNullValue=''}" Language="ru-RU" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
 
-        <Button Grid.Row="6" Style="{StaticResource ButtonStyle}" Height="30" Command="{Binding AddTeacherCommand}" Content="Добавить" Width="90"  VerticalContentAlignment="Center" Padding="5" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
+        <Label Grid.Row="7" Content="Количество ставок" Margin="25,0" VerticalAlignment="Top" HorizontalAlignment="left"/>
+        <TextBox Grid.Row="7" Height="30" Text="{Binding WorkloadCount, TargetNullValue=''}" Language="ru-RU" Width="200" Margin="25,20,25,0" VerticalAlignment="Top" HorizontalAlignment="left" BorderThickness="1" BorderBrush="#E0E0E0" />
+
+        <Button Grid.Row="8" Style="{StaticResource ButtonStyle}" Height="30" Command="{Binding AddTeacherCommand}" Content="Добавить" Width="90"  VerticalContentAlignment="Center" Padding="5" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="1" BorderBrush="#E0E0E0" />
 
     </Grid>
 </Window>
