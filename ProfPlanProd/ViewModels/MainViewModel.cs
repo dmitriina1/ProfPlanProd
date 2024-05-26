@@ -1131,11 +1131,69 @@ namespace ProfPlanProd.ViewModels
 
         private IEnumerable<string> GetPropertyNames(object data)
         {
-            return data is ExcelModel model
-        ? typeof(ExcelModel).GetProperties().Where(p => p.Name != "Teachers").Select(p => p.Name)
-        : data is ExcelAdditional additional
-        ? typeof(ExcelAdditional).GetProperties().Select(p => p.Name)
-        : typeof(ExcelTotal).GetProperties().Select(p => p.Name);
+
+            IEnumerable<string> propertyNames;
+
+            if (data is ExcelModel model)
+            {
+                propertyNames = typeof(ExcelModel).GetProperties()
+                    .Where(p => p.Name != "Teachers")
+                    .Select(p => p.Name);
+                propertyNames = propertyNames.OrderBy(name => GetPropertyOrder(name));
+            }
+            else if (data is ExcelAdditional additional)
+            {
+                propertyNames = typeof(ExcelAdditional).GetProperties().Select(p => p.Name);
+            }
+            else
+            {
+                propertyNames = typeof(ExcelTotal).GetProperties().Select(p => p.Name);
+            }
+            return propertyNames;
+
+
+        //    return data is ExcelModel model
+        //? typeof(ExcelModel).GetProperties().Where(p => p.Name != "Teachers").Select(p => p.Name)
+        //: data is ExcelAdditional additional
+        //? typeof(ExcelAdditional).GetProperties().Select(p => p.Name)
+        //: typeof(ExcelTotal).GetProperties().Select(p => p.Name);
+        }
+
+        private int GetPropertyOrder(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case "Number": return 1;
+                case "Teacher": return 2;
+                case "Discipline": return 3;
+                case "Term": return 4;
+                case "Group": return 5;
+                case "Institute": return 6;
+                case "GroupCount": return 7;
+                case "SubGroup": return 8;
+                case "FormOfStudy": return 9;
+                case "StudentsCount": return 10;
+                case "CommercicalStudentsCount": return 11;
+                case "Weeks": return 12;
+                case "ReportingForm": return 13;
+                case "Lectures": return 14;
+                case "Practices": return 15;
+                case "Laboratory": return 16;
+                case "Consultations": return 17;
+                case "Tests": return 18;
+                case "Exams": return 19;
+                case "CourseWorks": return 20;
+                case "CourseProjects": return 21;
+                case "GEKAndGAK": return 22;
+                case "Diploma": return 23;
+                case "RGZ": return 24;
+                case "ReviewDiploma": return 25;
+                case "Other": return 26;
+                case "Total": return 27;
+                case "Budget": return 28;
+                case "Commercial": return 29;
+                default: return int.MaxValue;
+            }
         }
 
         private void SaveWorkbook(XLWorkbook workbook)
